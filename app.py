@@ -103,8 +103,7 @@ def get_documents():
         return jsonify({"message": "No job IDs provided"}), 400
 
     try:
-        # Connect to SQLite database
-        conn = sqlite3.connect('data.db')
+        conn = get_db_connection()
         cursor = conn.cursor()
 
         # Query to fetch documents related to the given job IDs
